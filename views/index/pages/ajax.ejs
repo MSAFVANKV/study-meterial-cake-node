@@ -1,0 +1,61 @@
+
+
+<%- include('../layout/_Header') %>
+
+<section>
+
+    <button id="populate">GET DATA</button>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>UseName</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody id="result">
+
+        </tbody>
+    </table>
+
+</section>
+
+
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open("get", "https://jsonplaceholder.typicode.com/users");
+
+
+document.getElementById("populate").addEventListener("click",function(){
+    xhr.send();
+})
+
+xhr.onreadystatechange = function(){
+    if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                var data = JSON.parse(xhr.responseText);
+                // console.log(data)
+                let html = ""
+                for(i=0 ; i< data.length; i++){
+                  var current_data =  data[i];
+                  html += "<tr>" +
+                    '<td>'+current_data.id+'</td>'+
+                    '<td class="text-center">'+current_data.name+'</td>'+
+                    '<td>'+current_data.username+'</td>'+
+                    '<td>'+current_data.email+'</td>'+
+                    '</tr>';
+                    
+                //   console.log(current_data);
+                }
+                document.getElementById("result").innerHTML = html
+            }
+            else{
+                alert("Error")
+            }
+    }
+
+}
+</script>
+
+<%- include('../layout/_Footer') %>

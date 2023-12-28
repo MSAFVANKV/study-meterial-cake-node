@@ -1,0 +1,61 @@
+<!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<%- include('../layout/_Header') %>
+<style>
+    body{
+        background-size: cover;
+    }
+</style>
+
+<section>
+   <div class="slide hi-slide">
+      <div class="hi-prev"></div>
+      <div class="hi-next"></div>
+      <ul>
+         <li><img src="/assets/info1.jpeg" alt=""></li>
+         <li><img src="/assets/info2.jpeg" alt=""></li>
+         <li><img src="/assets/p2.jpeg" alt=""></li>
+         <li><img src="/assets/p4.jpeg" alt=""></li>
+         <li><img src="/assets/p5.jpeg" alt=""></li>
+         <li><img src="/assets/post1.jpeg" alt=""></li>
+         <li><img src="/assets/post4.jpeg" alt=""></li>
+         <li><img src="/assets/post5.jpeg" alt=""></li>
+
+      </ul>
+   </div>
+</section>
+
+<!-- rotation  -->
+<section class="main2">
+    <div class="box">
+        <span style="--i:1;"><img src="/assets/info1.jpeg"></span>
+        <span style="--i:2;"><img src="/assets/info2.jpeg"></span>
+        <span style="--i:3;"><img src="/assets/p2.jpeg"></span>
+        <span style="--i:4;"><img src="/assets/p4.jpeg"></span>
+        <span style="--i:5;"><img src="/assets/p5.jpeg"></span>
+        <span style="--i:6;"><img src="/assets/post1.jpeg"></span>
+        <span style="--i:7;"><img src="/assets/post4.jpeg"></span>
+        <span style="--i:8;"><img src="/assets/post5.jpeg"></span>
+
+    </div>
+</section>
+
+<section class="main-3">
+    <div class="container">
+        <div class="sun"></div>
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="/js/hislide/jquery.hislide.js"></script>
+
+<script>
+    $('.slide').hiSlide()
+</script>
+
+<%- include('../layout/_Footer') %>

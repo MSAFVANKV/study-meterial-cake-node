@@ -1,0 +1,163 @@
+<%- include('../layout/_Header') %>
+<link
+  href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+  rel="stylesheet"
+/>
+
+<section class="h-[100vh]">
+  <input type="text" name="name" id="name" class="border p-5" />
+  <button onclick="greet()">Click</button>
+  <div class="greet"></div>
+</section>
+
+<section
+  id="fibonacci"
+  class="h-[100vh] flex flex-col justify-content-center items-center"
+>
+  <u>
+    <h1 class="text-center font-bold text-[2rem]">Fibonacci</h1>
+  </u>
+
+  <div class="w-[600px] h-[400px] bg-[rgba(235, 0, 255, 0.11)]">
+    <div
+      class="w-[100%] h-[100%] flex flex-col justify-content-center items-center"
+    >
+      <input type="number" class="p-2 border" id="fibonacciValue" />
+      <button
+        class="px-3 py-1 bg-green-900 rounded-2xl m-5 text-white font-bold"
+        onclick="isFibonacci()"
+      >
+        SHOOT
+      </button>
+      <ul class="ulel custom-list" id="list-container">
+        <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<%- include('../pages/nodejs')%>
+<!--  -->
+
+
+
+<!-- #promise.all  fetch -->
+<section style="height: 100vh;">
+
+</section>
+<script>
+  // Function that returns a Promise that resolves after a given time
+function delay(time) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(`Resolved after ${time} milliseconds`);
+    }, time);
+  });
+}
+
+// Example using a single Promise
+const singlePromise = delay(2000);
+
+singlePromise.then(result => {
+  console.log(result); // Will be printed after 2000 milliseconds
+});
+
+// Example using Promise.all with multiple promises
+const promise1 = delay(1000);
+const promise2 = delay(1500);
+const promise3 = delay(2000);
+
+const allPromises = Promise.all([promise1, promise2, promise3]);
+
+allPromises.then(results => {
+  console.log(results);
+  // Will be printed after all promises are resolved
+  // The array will contain the results of each individual promise
+}).catch(error => {
+  console.error(error);
+  // Will be called if any of the promises in the array is rejected
+});
+
+</script>
+
+<script type="text/javascript">
+  function greet() {
+    const name = document.getElementById("name").value;
+    const string = "Hello" + name;
+    document.getElementsByClassName("greet")[0].innerHTML = string;
+  }
+</script>
+<!-- <script>
+        function isFibonacci() {
+            const fb = document.getElementById("fibonacciValue");
+            const listContainer = document.getElementById("list-container");
+            const fbValue = fb.value.trim(); // Trim whitespace
+        if (fbValue === "") {
+            alert("Enter a value.");
+            return; // Added return to stop execution if the input is empty
+        }
+            var a = 0;
+            var b = 1;
+            for (let i = 0; i < fbValue; i++) {
+                let temp = a + b;
+                b = a;
+                a = temp;
+                // console.log(temp)
+                const li = document.createElement("li");
+            li.innerHTML = temp
+            listContainer.appendChild(li);
+            }
+            fb.value =""
+            
+
+        }
+    </script> -->
+<script>
+  function isFibonacci() {
+    const fb = document.getElementById("fibonacciValue");
+    const listContainer = document.getElementById("list-container");
+    const fbValue = parseInt(fb.value.trim());
+    if (isNaN(fbValue) || fbValue <= 0) {
+      alert("Enter a valid positive integer.");
+      return;
+    }
+
+    var a = 0;
+    var b = 1;
+    let result = "";
+
+    for (let i = 0; i < fbValue; i++) {
+      const temp = a;
+      a = b;
+      b = temp + b;
+
+      result += temp;
+      if (i < fbValue - 1) {
+        result += ", ";
+      }
+    }
+
+    const li = document.createElement("li");
+    li.innerHTML = result;
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML = "\u00d7";
+    li.appendChild(span);
+
+    listContainer.addEventListener(
+      "click",
+      function (e) {
+        if (e.target.tagName === "SPAN") {
+          e.target.parentElement.remove();
+        }
+      },
+      false
+    );
+
+    fb.value = "";
+  }
+</script>
+<%- include('../layout/_Footer') %>

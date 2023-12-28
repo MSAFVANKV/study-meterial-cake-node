@@ -1,0 +1,161 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+        <link href="/dist/output.css" rel="stylesheet">
+        <title><%= docTitle %></title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/boxanimation.css">
+        <link rel="stylesheet" href="/css/flavour.css">
+
+
+        <!-- <meta 
+        http-equiv="refresh"
+        content="2"
+        > -->
+    </head>
+    <body>
+        
+        
+            <!-- <div class="lg:flex hidden items-center justify-center lg:justify-center p-10">
+                
+                
+            </div> -->
+            <nav>
+                <div class="logo">TerboFusion</div>
+                <label for="btn" class="icon">
+                    <span class="fa fa-bars">///</span>
+                </label>
+                <input type="checkbox" id="btn" class="inputbar">
+                <!-- <ul class="sidebar">
+                    <li >
+                        <a href="#" >
+                            <svg onclick=closeSidebar() xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" id="homeLink" class="">Home</a>
+                    </li>
+                    <li>
+                        <a href="/store" id="storeLink" class="">Store</a>
+                    </li>
+                    <li>
+                        <a href="/flavor" id="flavorLink" class="">Flavor</a>
+
+                    </li>
+                    <li>
+                        <a href="/jqury" id="flavorLink" class="">jqury</a>
+
+                    </li>
+                    <li>
+                        <a href="/ajax" id="flavorLink" class="">ajax</a>
+
+                    </li>
+                    <li>
+                        <a href="#" id="function_hover" class=" relative" >Functions</a>
+
+                    </li>
+                </ul> -->
+                <!-- ------- -->
+                <ul class="">
+                    <li class="hideOnMob">
+                        <a href="/" id="homeLink" class="">Home</a>
+                    </li>
+                    <!--  -->
+                    <li class="hideOnMob">
+                        <label for="btn-1" class="show" >Functions +</label>
+                        <a href="#" id="function_hover" class="" >Functions</a>
+                        <input type="checkbox" id="btn-1" class="inputbar">
+                        <!-- dropdown -->
+                        <ul class="dropdowns">
+                            <li>
+                            <a href="/palendroma" class="">Palandroma</a>
+                            </li>
+                            <li>
+                                <a href="/prime" class="">PrimeNumber</a>
+                            </li>
+                            <li>
+                                <a href="/todolist" class="  ">todolist</a>
+                            </li>
+                            <li>
+                                <a href="/#fibonacci" class="  ">Fibonacci</a>
+                            </li>
+                            <li>
+                                <label for="btn-2" class="show" >More +</label>
+                                <a href="#">More
+                                    <span class="fa fa-plus">+</span>
+                                </a>
+                                <input type="checkbox" id="btn-2" class="inputbar">
+                                <ul>
+                                    <li>
+                                        <a href="/clock">Clock</a>
+                                    </li>
+                                    <li>
+                                        <a href="/#nodejs">nodejs</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <!--  -->
+                    <li class="hideOnMob">
+                        <a href="/store" id="storeLink" class="">Store</a>
+                    </li>
+                    <li class="hideOnMob">
+                        <a href="/flavor" id="flavorLink" class="">Flavor</a>
+
+                    </li>
+                
+                    <li class="hideOnMob">
+                        <a href="/jqury" id="flavorLink" class="">jqury</a>
+
+                    </li>
+                    <li class="hideOnMob">
+                        <a href="/ajax" id="flavorLink" class="">ajax</a>
+
+                    </li>
+                
+                    <!-- <li onclick=showSidebar() class="menu-button">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                        </a>
+                    </li> -->
+                </ul>
+            </nav>
+
+    <script src="/js/jqury/jqury.js" type="text/javascript"></script>
+        
+    <script>
+    
+        function showSidebar() {
+            const sideBar = document.querySelector(".sidebar");
+            sideBar.style.display = 'flex'
+        }
+        function closeSidebar() {
+            const sideBar = document.querySelector(".sidebar");
+            sideBar.style.display = 'none'
+        }
+    </script>
+        <script>
+
+            $("document").ready(function(){
+                $("#func_table").hide(); // hide initially
+
+                // $("#function_hover").mouseenter(function(){
+                //     $("#func_table").show(); // show on hover
+                // });
+                $("#function_hover").click(function(){
+                    $("#func_table").show(); // show on hover
+                });
+
+                $("#function_hover").dblclick(function(){
+                    $("#func_table").hide(); // hide on mouse leave
+                });
+            });
+
+        </script>
+

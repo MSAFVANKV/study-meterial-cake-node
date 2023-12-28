@@ -1,0 +1,164 @@
+
+<%- include('../layout/_Header') %>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+        .hero{
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #08001f, #30197d);
+            color: #fff;
+            position: relative;
+        }
+        .containar{
+            width: 80%;
+            height: 180px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .clock{
+            width: 100%;
+            height: 100%;
+            background: rgba(235, 0, 255, 0.11);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(40px);
+        }
+        .containar::before{
+            content: '';
+            width: 180px;
+            height: 180px;
+            background: #f41b75;
+            border-radius: 5px;
+            position: absolute;
+            left: -50px;
+            top: -50px;
+            z-index: -1;
+        }
+        .containar::after{
+            content: '';
+            width: 180px;
+            height: 180px;
+            background: #419aff;
+            border-radius: 50%;
+            position: absolute;
+            right: -30px;
+            bottom: -50px;
+            z-index: -1;
+        }
+        .clock span{
+            font-size: 70px;
+            width: 110px;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+        }
+        .clock span::after{
+            /* content: 'HOURS'; */
+            font-size: 16px;
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #hrs::after{
+            content: 'HOURS';
+        }
+        #min::after{
+            content: 'MINS';
+        }
+        #sec::after{
+            content: 'SEC';
+        }
+    </style>
+    
+    <div class="hero">
+        <div class="containar">
+            <div class="clock">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- <script>
+        let hrs = document.getElementById("hrs")
+        let min = document.getElementById("min")
+        let sec = document.getElementById("sec");
+
+        setInterval(()=>{
+            let currentTime = new Date();
+            let formattedTime = currentTime.toLocaleTimeString();
+
+        hrs.innerHTML = (currentTime.getHours()<10?"0":"")+currentTime.getHours();
+        min.innerHTML = (currentTime.getMinutes()<10?"0":"")+currentTime.getMinutes();
+        sec.innerHTML = (currentTime.getSeconds()<10?"0":"")+currentTime.getSeconds();
+
+        },1000)
+
+        // console.log(currentTime.getHours());
+
+    </script> -->
+    <script>
+        function formatTime(unit) {
+            return unit < 10 ? "0" + unit : unit;
+        }
+    
+        function updateClock() {
+            let currentTime = new Date();
+    
+            let hours = currentTime.getHours();
+            let ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+    
+            let formattedHours = formatTime(hours);
+            let formattedMinutes = formatTime(currentTime.getMinutes());
+            let formattedSeconds = formatTime(currentTime.getSeconds());
+    
+            hrs.innerHTML = formattedHours;
+            min.innerHTML = formattedMinutes;
+            sec.innerHTML = formattedSeconds;
+    
+            // You can add the following line if you want to display AM/PM
+            // sec.innerHTML = formattedSeconds + " " + ampm;
+        }
+    
+        setInterval(updateClock, 1000);
+        updateClock(); // Call the function once to update the clock immediately
+    </script>
+    
+        <!-- <script>
+        let hrs = document.getElementById("hrs");
+        let min = document.getElementById("min");
+        let sec = document.getElementById("sec");
+    
+        setInterval(() => {
+            let currentTime = new Date();
+            let formattedTime = currentTime.toLocaleTimeString();
+    
+            // Split the formatted time string into hours, minutes, and seconds
+            let [hours, minutes, seconds] = formattedTime.split(':');
+    
+            hrs.innerHTML = (hours < 10 ? "0" : "") + hours;
+            min.innerHTML =  minutes;
+            sec.innerHTML = (seconds < 10 ? "0" : "") + seconds;
+    
+        }, 1000);
+    </script> -->
+
+<%- include('../layout/_Footer') %>

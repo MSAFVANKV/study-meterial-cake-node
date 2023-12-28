@@ -1,0 +1,48 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+<%- include('../layout/_Header') %>
+
+<h1 class="text-center m-5">
+    Is Prime Number
+</h1>
+
+<section class="">
+    <div class="flex justify-center gap-10">
+     <input type="number" class="p-2 border" id="textValue">
+     <Button class="p-2 bg-blue-500 hover:bg-blue-400 rounded-2xl text-white" onclick="isPrime()">SUBMIT</Button>
+    </div>
+    <div class="m-20 bg-purple-100 result text-center font-bold p-2" >
+    
+    </div>
+ </section>
+
+ <script>
+    function isPrime() {
+        let input = document.getElementById("textValue");
+        let inputVal = parseInt(input.value); // Parse the input value as an integer
+        let msg = "Is Prime Number";
+        if (isNaN(inputVal)) {
+            msg = ": Please enter a valid number.";
+            } else if
+
+         (inputVal <= 1 && isNaN(inputVal)) {
+            msg = "Is not Prime Number";
+        } else {
+            for (let i = 2; i < inputVal; i++) {
+                if (inputVal % i === 0) {
+                    msg = "Is not Prime Number";
+                    break; // Exit the loop once a factor is found
+                }
+            }
+        }
+
+        // Correct the selector to target the element with the class "result"
+        document.querySelector(".result").innerHTML = inputVal + " " + msg;
+        input.value = ""
+    }
+</script>
+
+
+
+<%- include('../layout/_Footer') %>

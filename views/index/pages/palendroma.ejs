@@ -1,0 +1,38 @@
+<!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<%- include('../layout/_Header') %>
+
+<h1 class="text-center m-5">
+    Is Palindroma
+</h1>
+
+<section class="">
+   <div class="flex justify-center gap-10">
+    <input type="text" class="p-2 border" id="textValue">
+    <Button class="p-2 bg-blue-500 hover:bg-blue-400 rounded-2xl text-white" onclick="isPalindroma()">SUBMIT</Button>
+   </div>
+   <div class="m-20 bg-purple-100 result text-center font-bold p-2" >
+   
+   </div>
+</section>
+
+<script type="text/javascript">
+    function isPalindroma(){
+        let textInput = document.getElementById("textValue");
+        let text = textInput.value;
+        let text_len = text.length;
+        let msg = "is Palindrome"; // Corrected the variable name
+        for(let i=0; i<text_len/2; i++){
+            if(text[i] !== text[text_len - 1 - i]){
+                msg = "It is not a Palindrome";
+            }
+        }
+        document.querySelector(".result").innerHTML = `${text} ${msg} `;
+        textInput.value = "";
+    }
+</script>
+
+
+<%- include('../layout/_Footer') %>
